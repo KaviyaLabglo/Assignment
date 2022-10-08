@@ -6,7 +6,7 @@ import os
 from assignment.form import *
 from assignment.models import *
 
-# Create your views here.
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 #from as import forms
 from django.shortcuts import redirect, render
@@ -27,7 +27,7 @@ def login_page(request):
         	if user is not None:
         		login(request, user)
         		messages.info(request, f"You are now logged in as {username}.")
-        		return redirect('add')
+        		return redirect('list')
         	else:
         		messages.error(request,"Invalid username or password.")
     else:
@@ -59,6 +59,7 @@ def stu_update(request, id):
     
     
 
+@login_required(redirect_field_name='list', login_url='login')
 def list_view(request):
 	frms_obj = Student.objects.all()
 	return render(request,'list.html',{'form':frms_obj})   

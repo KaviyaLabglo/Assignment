@@ -24,9 +24,9 @@ import assignment.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', assignment.views.login_page, name='login'),
+    path('',assignment.views.login_page, name='login'),
     path('ass/', include('assignment.urls')),
-    path('logout/',assignment.views.logout_user, name='logout'),
+   
     
   
 ]
