@@ -1,0 +1,47 @@
+<html>
+<h1>SHOW</h1>
+
+
+<head>
+</head>
+<body>
+<table border="1px solid black">
+<tr>
+  <th>Student ID</th>
+  <th>Subject</th>
+  <th>Mark</th>
+  <th>updated_on</th>
+  <th>created_on</th>
+  <th>Created By</th>
+  <th>Modified By</th>
+  <th>Update</th>
+  <th>Delete</th>
+  <th>Json</th>
+  
+   
+</tr>
+
+<tr> 
+   
+{% for i in data %}
+   <td> {{ i.stu_id_id}}</td>
+   <td> {{ i.subject }}</td>
+   <td> {{ i.mark}}</td>
+   <td> {{ i.updated_on }}</td>
+   <td> {{ i.created_on}}</td>
+   <td> {{ i.created_by }}</td>
+   <td>{{ i.modified_by}} </td>
+   <td><a href="http://127.0.0.1:8000/ass/markupdate/{{i.id}}/"><button>UPDATE</button></a></td>
+   <td><a href="http://127.0.0.1:8000/ass/del/{{i.id}}/"><button>DELETE</button></a></td>
+   <td><a href="http://127.0.0.1:8000/ass/json/{{i.id}}/">JSON Format</a></td>
+</tr>
+
+{% endfor %}
+</table>
+
+
+<a href="http://127.0.0.1:8000/ass/"><button>GO BACK</button></a>
+<a href="http://127.0.0.1:8000/ass/markadd/"><button>ADD</button></a>
+<a href="http://127.0.0.1:8000/ass/con/"><button>JSON VIEW</button></a>
+</body>
+

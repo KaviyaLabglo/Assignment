@@ -1,0 +1,43 @@
+{% load static %}
+<html>
+<h1>SHOW</h1>
+
+<link rel="stylesheet" href="{% static 'mycss.css' %}">
+<head>
+</head>
+<body>
+<table border="1px solid black">
+<tr>
+ <th>ID</th>
+  <th>FirstName</th>
+  <th>Last Name</th>
+  <th>DOB</th>
+  <th>AGE</th>
+  <th>Image</th>
+  <th>Subject</th>
+  <th>Update</th>
+  <th>Delete</th>
+</tr>
+{% for data in form %}
+<tr>
+   <td> {{data.id}} </td>  
+   <td> {{ data.firstname }}</td>
+   <td> {{ data.lastname}}</td>
+   <td> {{ data.dob }}</td>
+   <td> {{ data.age}}</td>
+   <td><img src="{{ data.upload_image.url }}" width="100" height="100"></td>
+   <td><a href="http://127.0.0.1:8000/ass/mark/{{data.id}}/"><button>VIEW</button></a></td>
+   <td><a href="http://127.0.0.1:8000/ass/update/{{data.id}}/"><button>Update</button></a></td>
+   <td><a href="http://127.0.0.1:8000/ass/delete/{{data.id}}/"><button>Delete</button></a></td>
+
+     {% endfor %}
+</tr>
+<br>
+</table>
+<a href="http://127.0.0.1:8000/ass/add/"><button>ADD</button></a>
+
+
+<p>You are logged in as {{ request.user }}. Click here to</p>  <p><a href="{% url 'logout' %}">Logout</a></p>
+
+</body>
+

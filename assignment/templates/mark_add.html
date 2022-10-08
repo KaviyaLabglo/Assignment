@@ -1,0 +1,11 @@
+  
+<html>   
+<body>  
+<form method="post" enctype="multipart/form-data">   
+	{% csrf_token %} 
+        {{ form.as_p }}  
+        <button type="submit">Save</button>  
+    </form>
+    <input type=button value="Previous Page" onClick="javascript:history.go(-2);">
+</body>  
+</html> 
